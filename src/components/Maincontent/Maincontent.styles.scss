@@ -48,7 +48,7 @@ $backgroundColor: #f5f5f5;
       cursor: pointer;
 
       @media screen and (min-width: 768px) {
-        margin-left: 1.2em;
+        display: none;
       }
     }
 
@@ -60,7 +60,8 @@ $backgroundColor: #f5f5f5;
       cursor: pointer;
 
       @media screen and (min-width: 768px) {
-        margin-left: 1.2em;
+        font-size: 1.5rem;
+        margin-left: 2em;
       }
 
       .count {
@@ -122,7 +123,7 @@ $backgroundColor: #f5f5f5;
       cursor: pointer;
 
       @media screen and (min-width: 768px) {
-        margin-left: 1.2em;
+        margin-left: 2em;
         margin-right: 0;
       }
 
