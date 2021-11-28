@@ -88,9 +88,9 @@ const Maincontent = ({ fetchData, data, nothingFound, setData, loading }) => {
         {!nothingFound && (
           <div className='loading'>Nothing Found. Enter a New Search Query</div>
         )}
-        <div className='main-content-container'>
-          {data.length &&
-            data.map(
+        {data.length && (
+          <div className='main-content-container'>
+            {data.map(
               ({
                 user: { first_name, location },
                 id,
@@ -108,7 +108,8 @@ const Maincontent = ({ fetchData, data, nothingFound, setData, loading }) => {
                 />
               )
             )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
