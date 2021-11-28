@@ -1,0 +1,33 @@
+$secondaryColor: #080897;
+
+.leftNavButton {
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #808080;
+  margin-bottom: 0.3em;
+  cursor: pointer;
+
+  &:hover {
+    outline: 1px solid #e6e5e5;
+  }
+
+  .home {
+    color: $secondaryColor;
+  }
+
+  .icon {
+    width: 15px;
+  }
+
+  .text {
+    margin-left: 0.5em;
+  }
+}
+
+.select {
+  outline: 1px solid #e6e5e5;
+  color: #2c2b2b;
+  font-weight: 700;
+}
