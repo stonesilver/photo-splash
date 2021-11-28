@@ -25,7 +25,14 @@ const Maincontent = ({ fetchData, data, nothingFound, setData, loading }) => {
     <div className='right'>
       <div className='top-nav'>
         <header className='mobile-logo'>
-          <span className='text'>bluecube</span>
+          <span className='text'>
+            <img
+              alt='brand-logo'
+              className='brand-logo'
+              src='https://img.icons8.com/external-kmg-design-flat-kmg-design/25/000000/external-cube-graphic-design-kmg-design-flat-kmg-design.png'
+            />
+            bluecube
+          </span>
         </header>
         <Search setData={setData} fetchData={fetchData} mobile={false} />
         <div className='mobile-search' onClick={toggleMobileSearch}>

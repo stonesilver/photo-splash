@@ -27,7 +27,14 @@ const SideBar = () => {
           <span className='hambuger'></span>
         </div>
       </div>
-      <header className='logo'>bluecube</header>
+      <header className='logo'>
+        <img
+          alt='brand-logo'
+          className='brand-logo'
+          src='https://img.icons8.com/external-kmg-design-flat-kmg-design/25/000000/external-cube-graphic-design-kmg-design-flat-kmg-design.png'
+        />
+        <span className='brand-text'>bluecube</span>
+      </header>
       <div ref={ref} className={`content ${visible ? 'mobile-on' : ''}`}>
         <div className='main'>
           <LeftNavButton text='Home' />
