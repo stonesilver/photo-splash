@@ -8,6 +8,10 @@
   padding: 0.9em;
   border-bottom: 1px solid#d4d2d2;
 
+  &:hover {
+    background: #e2dede;
+  }
+
   &:last-child {
     border-bottom: none;
   }

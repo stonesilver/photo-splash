@@ -1,0 +1,145 @@
+$secondaryColor: #080897;
+$backgroundColor: #f5f5f5;
+
+.left {
+  position: fixed;
+  top: 0;
+  left: 0.5em;
+  width: auto;
+  min-height: auto;
+  background-color: $backgroundColor;
+  z-index: 2;
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+    min-height: 100vh;
+    padding: 0 0.5em;
+    border-right: 1px solid #e7e7e7;
+    z-index: 0;
+  }
+
+  .mobileToggle {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    margin: 0.8em 0.3em;
+
+    @media all and (min-width: 768px) {
+      display: none;
+    }
+
+    #toggleHamburger {
+      position: absolute;
+      top: 0;
+      left: -7px;
+      width: 25px;
+      height: 25px;
+      z-index: 5;
+      opacity: 0;
+      cursor: pointer;
+
+      &:checked .content {
+        display: block;
+      }
+
+      &:checked ~ .hamburgerContainer .hambuger:nth-child(2) {
+        left: -100px;
+      }
+
+      &:checked ~ .hamburgerContainer .hambuger:first-child {
+        transform: rotate(45deg) translateY(4px) translateX(5px);
+        color: #ff0000;
+        width: 100%;
+      }
+
+      &:checked ~ .hamburgerContainer .hambuger:last-child {
+        transform: rotate(-45deg) translateY(-5px) translateX(5px);
+        color: #ff0000;
+        width: 100%;
+      }
+    }
+
+    .hamburgerContainer {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      grid-gap: 0.5rem;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0 0.2rem;
+
+      @media screen and (max-width: 768px) {
+        grid-gap: 0;
+      }
+
+      .hambuger {
+        position: relative;
+        right: 0;
+        width: 100%;
+        border: 1px solid;
+        transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        margin-bottom: 0.3rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .logo {
+    display: none;
+    align-items: center;
+    height: 70px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $secondaryColor;
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+      height: 100px;
+    }
+  }
+
+  .content {
+    display: none;
+    width: 50vw;
+    min-height: 100vh;
+    margin-top: 2em;
+    padding-right: 2rem;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+      width: auto;
+      margin-top: 0;
+      min-height: auto;
+    }
+
+    .main {
+      margin-top: 1.5em;
+
+      @media screen and (min-width: 768px) {
+        margin-top: 0;
+      }
+    }
+
+    .share {
+      margin-top: 1em;
+
+      .share-header {
+        font-size: 14px;
+        font-weight: 700;
+        color: #2c2b2b;
+        margin: 0 0 0.5em 1em;
+      }
+    }
+  }
+
+  .mobile-on {
+    display: block;
+  }
+}
