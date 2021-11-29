@@ -7,6 +7,8 @@ const Homepage = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [nothingFound, setNothingFound] = useState(1);
+  const [error, setError] = useState(false)
+  const [param, setParam] = useState('')
 
   // initial search string on first load
   const searchField = 'male';
@@ -14,14 +16,17 @@ const Homepage = () => {
   const fetchData = useCallback(async (text) => {
     try {
       setLoading(true);
+      setParam(text)
       const res = await fetch(
         `https://api.unsplash.com/search/photos?page=1&query=${text}&client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}`
       );
       const { results, total } = await res.json();
       setData(results);
       setNothingFound(total);
+      setError(false)
     } catch (error) {
       setLoading(false);
+      setError(true)
       console.log(error);
     }
 
@@ -42,6 +47,8 @@ const Homepage = () => {
           nothingFound={nothingFound}
           setData={setData}
           loading={loading}
+          error={error}
+          param={param}
         />
       </main>
     </div>

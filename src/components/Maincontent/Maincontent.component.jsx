@@ -8,7 +8,15 @@ import { useClickOutsideHook } from '../../Hooks/clickOutsideHook';
 import Search from '../../components/Search/Search.component';
 import './Maincontent.styles.scss';
 
-const Maincontent = ({ fetchData, data, nothingFound, setData, loading }) => {
+const Maincontent = ({
+  fetchData,
+  data,
+  nothingFound,
+  setData,
+  loading,
+  error,
+  param,
+}) => {
   const [hideMobileSearch, setHideMobileSearch] = useState(false);
   const { visible, setVisible, ref, ref1 } = useClickOutsideHook(false);
 
@@ -84,11 +92,27 @@ const Maincontent = ({ fetchData, data, nothingFound, setData, loading }) => {
         </div>
       </div>
       <div className='main-content'>
+        {(error && !loading) && (
+          <div className='loading'>
+            <div className='error'>
+              <p className='error-message'>An error occured</p>
+              <span>Try:</span>
+              <ul>
+                <li>Checking the connection</li>
+                <li>Checking the proxy, firewall, and DNS configuration</li>
+                <li>Running Windows Network Diagnostics</li>
+              </ul>
+              <div onClick={() => fetchData(param)} className='reload'>
+                Click to reload
+              </div>
+            </div>
+          </div>
+        )}
         {loading && <div className='loading'>Loading...</div>}
         {!nothingFound && (
           <div className='loading'>Nothing Found. Enter a New Search Query</div>
         )}
-        {data.length && (
+        {data.length ? (
           <div className='main-content-container'>
             {data.map(
               ({
@@ -109,7 +133,7 @@ const Maincontent = ({ fetchData, data, nothingFound, setData, loading }) => {
               )
             )}
           </div>
-        )}
+        ) : ''}
       </div>
     </div>
   );
