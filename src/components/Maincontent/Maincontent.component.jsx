@@ -92,7 +92,7 @@ const Maincontent = ({
         </div>
       </div>
       <div className='main-content'>
-        {(error && !loading) && (
+        {error && !loading && (
           <div className='loading'>
             <div className='error'>
               <p className='error-message'>An error occured</p>
@@ -133,7 +133,9 @@ const Maincontent = ({
               )
             )}
           </div>
-        ) : ''}
+        ) : (
+          ''
+        )}
       </div>
     </div>
   );
